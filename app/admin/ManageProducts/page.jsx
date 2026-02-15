@@ -74,7 +74,7 @@ const ManageProductsPage = () => {
           <h1 className="text-3xl font-black text-text-primary uppercase tracking-tight">Inventory Management</h1>
           <p className="text-gray-500 font-medium">Total Products: <span className="text-nexus-color font-bold">{products.length}</span></p>
         </div>
-        <Link href="/Dashboard/Add">
+        <Link href="/admin/Add">
           <button className="flex items-center gap-2 bg-nexus-color hover:bg-nexus-color/90 text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-nexus-color/20 transition-all active:scale-95">
             <Plus size={20} /> Add New Product
           </button>
