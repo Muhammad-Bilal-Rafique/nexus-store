@@ -4,12 +4,13 @@ import { useForm } from "react-hook-form";
 import { User, Lock, Eye, EyeOff, Loader2 } from "lucide-react";
 import LogoBox from "@/app/components/UI/LogoBox.jsx";
 import { toast, Toaster } from "sonner";
-import Linkk from "next/link";
+import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import GoogleButton from "react-google-button";
+import { Suspense } from "react";
 
-const LoginPage = () => {
+const LoginForm = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   
@@ -164,16 +165,25 @@ const LoginPage = () => {
         {/* Register Link */}
         <p className="mt-6 text-center text-sm text-gray-600">
           Don't have an account?{" "}
-          <Linkk
+          <Link
             href="/pages/register"
             className="text-action font-medium hover:underline"
           >
             Create one
-          </Linkk>
+          </Link>
         </p>
       </div>
     </div>
   );
 };
 
-export default LoginPage;
+export default function LoginPage() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-bg-secondary px-4 py-8">
+      <Toaster position="top" richColors />
+      <Suspense fallback={<div className="text-center"><Loader2 className="animate-spin w-10 h-10 mx-auto" /></div>}>
+        <LoginForm />
+      </Suspense>
+    </div>
+  );
+}
