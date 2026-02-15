@@ -1,26 +1,25 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* This automatically creates utility classes like text-state-error, bg-action, etc. */
+  
+  --color-bg-primary: #FEFEFE;
+  --color-bg-secondary: #FBF8FC;
+  
+  --color-nexus-color: #A06CAF;
+  --color-text-primary: #1F1625;
+
+  /* Your Action Colors */
+  --color-action: #A06CAF;
+  --color-action-hover: #8E5C9C;
+
+  /* Your Status Colors (The Red you need!) */
+  --color-state-error: #FF6B8A;
+  --color-state-success: #4ECDC4;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Base Styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
 }

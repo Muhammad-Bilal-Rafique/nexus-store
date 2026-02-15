@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🛒 NEXUS - Full-Stack E-commerce Platform
 
-## Getting Started
+**Nexus** is a robust and scalable e-commerce application built with the latest web technologies. It features a seamless shopping experience for users and a powerful, secure dashboard for administrators to manage inventory, orders, and products.
 
-First, run the development server:
+![Project Preview](https://via.placeholder.com/1000x500?text=Nexus+Dashboard+Preview) 
+*(Note: Replace the link above with a screenshot of your actual dashboard once deployed)*
 
+## 🚀 Tech Stack
+
+* **Framework:** Next.js 14 (App Router)
+* **Styling:** Tailwind CSS + Lucide React
+* **Database:** MongoDB + Mongoose
+* **Authentication:** NextAuth.js (Credentials + Google OAuth)
+* **State Management:** React Hooks & Context API
+* **Notifications:** Sonner / React Hot Toast
+* **Deployment:** Vercel
+
+## ✨ Key Features
+
+### 👤 User Features
+* **Secure Authentication:** Sign up/Login via Email or Google.
+* **Product Discovery:** Advanced search, filtering, and categorization.
+* **Shopping Experience:** Add to cart, manage quantities, and seamless checkout flow.
+* **Order History:** View past orders and status updates (Processing, Shipped, Delivered).
+* **Review System:** Users can only review products they have actually purchased (Verified Purchase logic).
+
+### 🛡️ Admin Dashboard (RBAC)
+* **Role-Based Access Control:** Secure middleware protects admin routes from unauthorized users.
+* **Product Management:** Create, Read, Update, and Delete (CRUD) products with image support.
+* **Inventory Control:** Real-time stock tracking with visual indicators (Low Stock/Out of Stock).
+* **Order Management:** View customer orders and update shipping statuses.
+
+## 🛠️ Getting Started
+
+Follow these steps to run the project locally:
+
+**1. Clone the repository**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+git clone [https://github.com/YOUR_USERNAME/nexus-store.git](https://github.com/YOUR_USERNAME/nexus-store.git)
+cd nexus-store
