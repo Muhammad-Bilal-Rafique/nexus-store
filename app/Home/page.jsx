@@ -6,6 +6,10 @@ import FeaturedSection from '@/app/components/home/FeaturedSection'
 import Footer from '@/app/components/layout/Footer'
 import Categories from '@/app/components/home/Categories'
 
+export const metadata = {
+  title: 'Nexus Store | Home',
+  description: 'Nexus Store - Your Online Streetwear Destination',
+}
 
 export default function HomePage() {
   return (
