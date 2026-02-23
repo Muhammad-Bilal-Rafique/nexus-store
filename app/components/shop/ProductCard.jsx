@@ -8,7 +8,7 @@ export default function ProductCard({ product }) {
   return (
     <Link href={`/product/${product._id}`} className="group cursor-pointer block">
 
-      <div className="relative w-full aspect-[3/4] overflow-hidden bg-bg-secondary mb-4 rounded-sm">
+      <div className="relative w-full aspect-3/4 overflow-hidden bg-bg-secondary mb-4 rounded-sm">
         <Image 
           src={product.images?.[0] || "/placeholder.jpg"} 
           alt={product.title || "Product Image"}
@@ -19,7 +19,6 @@ export default function ProductCard({ product }) {
         
         {/* Quick Add / View Details Overlay */}
         <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-          {/* 👇 CHANGED to <div> to avoid "button inside link" error */}
           <div 
             className="w-full bg-action text-white font-bold py-3 uppercase text-xs tracking-widest hover:bg-action-hover transition-colors shadow-lg text-center"
           >

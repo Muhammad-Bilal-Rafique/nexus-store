@@ -1,11 +1,21 @@
 import connectDb from "@/lib/connectDb";
 import User from "@/models/users";
 import bcrypt from "bcrypt";
+import {email, z} from "zod";
+
+const userSchema = z.object({
+  email: z.email({error:"Invalid email address"}),
+  password: z.string().min(6, {error:"Password must be at least 6 characters long."}),
+})
 
 export async function POST(request) {
   try {
     await connectDb();
     const { name, username, email, password } = await request.json();
+    const validation = userSchema.safeParse({ email, password });
+    if(!validation.success) {
+      return new Response(JSON.stringify({success: false, error: validation.error}), {status: 400})
+    }
     
     // Check for existing user
     const existingUser = await User.findOne({ email });
