@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { useSession, signOut } from 'next-auth/react';
-import { User, Menu, X, ShoppingCart, LogOut, Phone } from 'lucide-react'; // Added Phone icon for contact
+import { User, Menu, X, ShoppingCart, LogOut,  } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useCart } from "@/app/context/CartContext";
@@ -64,24 +64,22 @@ const Navbar = () => {
                     <p className="text-xs font-bold text-text-primary">{session.user.name}</p>
                 </div>
                 
-                <Link href="/orders">
+                <Link href="/orders" aria-label='View profile and Orders'>
                   <div className="w-10 h-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center cursor-pointer hover:bg-action hover:text-white hover:border-action transition-all duration-200 shadow-sm">
                     <User className="w-5 h-5" />
                   </div>
                 </Link>
               </div>
             ) : (
-              <Link href="/login">
-                <button className="px-6 py-2.5 bg-text-primary text-white text-sm font-bold uppercase tracking-wider rounded-full hover:bg-action hover:shadow-lg hover:shadow-action/20 transition-all active:scale-95">
+              <Link href="/login" className="px-6 py-2.5 bg-text-primary text-white text-sm font-bold uppercase tracking-wider rounded-full hover:bg-action hover:shadow-lg hover:shadow-action/20 transition-all active:scale-95">
                   Login
-                </button>
               </Link>
             )}
           </div>
 
           {/* 4. MOBILE ACTIONS */}
           <div className="flex items-center gap-4 md:hidden">
-             <Link href="/cart" className="relative text-text-primary">
+             <Link href="/cart" aria-label='View Shopping cart' className="relative text-text-primary">
               <ShoppingCart className="w-6 h-6" />
               {mounted && getCartCount() > 0 && (
                 <span className="absolute -top-2 -right-2 bg-action text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
@@ -91,6 +89,8 @@ const Navbar = () => {
             </Link>
 
             <button
+            aria-label={mobileMenuOpen?"Close menu":"Open menu"}
+            aria-expanded={mobileMenuOpen}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg text-text-primary hover:bg-gray-100 transition-colors"
             >

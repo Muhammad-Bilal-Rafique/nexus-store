@@ -5,6 +5,7 @@ import Product from "@/models/Product";
 import connectDb from "@/lib/connectDb";
 
 
+
 export default async function FeaturedSection() {
    let products = []
    try {

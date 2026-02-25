@@ -1,7 +1,6 @@
-"use client";
 import Link from "next/link";
 import Image from "next/image";
-import HeroFullBG from "@/public/HeroFullBG.png"
+import HeroFullBG from "@/public/HeroFullBG.webp"
 
 export default function Hero() {
   return (
@@ -15,6 +14,8 @@ export default function Hero() {
           fill
           className="object-cover object-top" 
           priority
+          sizes="100vw"
+          quality={80}
         />
       </div>
       <div className="absolute inset-0 container mx-auto px-6 md:px-12 h-full flex flex-col justify-center pt-24 md:pt-32 z-10">
@@ -31,7 +32,7 @@ export default function Hero() {
             {/* Headline */}
             <h1 className="text-6xl md:text-8xl font-black text-text-primary tracking-tight leading-[0.9] drop-shadow-sm">
               URBAN <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-nexus-color to-purple-400">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-nexus-color to-purple-400">
                 REDEFINED.
               </span>
             </h1>
@@ -45,7 +46,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Link 
                 href="/shop" 
-                className="px-10 py-4 bg-action text-white font-bold uppercase tracking-widest text-sm hover:bg-action-hover transition-all duration-200 rounded-lg shadow-xl shadow-purple-200/30 text-center"
+                className="px-10 py-4 bg-[#c084fc] text-black font-bold uppercase tracking-widest text-sm hover:bg-action-hover transition-all duration-200 rounded-lg shadow-xl shadow-purple-200/30 text-center"
               >
                 Shop Now
               </Link>

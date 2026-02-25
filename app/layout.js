@@ -1,20 +1,24 @@
-"use client"
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { CartProvider } from "./context/CartContext"; 
-import { SessionProvider } from "next-auth/react";
+import { Providers } from "@/app/providers";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: 'swap' // This ensures text is visible while the font loads
+});
+
+export const metadata = {
+  title: "Nexus E-commerce",
+  description: "High-quality portfolio project",
+};
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SessionProvider>
-        <CartProvider>
+        <Providers>
           {children}
-        </CartProvider>
-        </SessionProvider>
+        </Providers>
       </body>
     </html>
   );
