@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product ,index }) {
 
   return (
     <Link href={`/product/${product._id}`} className="group cursor-pointer block">
@@ -15,6 +15,8 @@ export default function ProductCard({ product }) {
           fill 
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 25vw"
+          quality={80}
+          priority={index < 4}
         />
         
         {/* Quick Add / View Details Overlay */}
@@ -29,9 +31,9 @@ export default function ProductCard({ product }) {
 
       {/* Product Info */}
       <div className="space-y-1">
-        <h3 className="text-sm font-bold uppercase tracking-wide text-text-primary group-hover:text-action transition-colors truncate">
+        <h2 className="text-sm font-bold uppercase tracking-wide text-text-primary group-hover:text-action transition-colors truncate">
           {product.title}
-        </h3>
+        </h2>
         <p className="text-sm text-text-primary/60">PKR {product.price}</p>
       </div>
     </Link>

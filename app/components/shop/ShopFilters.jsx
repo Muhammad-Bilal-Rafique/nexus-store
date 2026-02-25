@@ -7,7 +7,7 @@ export default function ShopFilters({
   selectedCategory, setSelectedCategory,
   selectedSort, setSelectedSort,
   selectedSize, setSelectedSize,
-  selectedRating, setSelectedRating
+  // selectedRating, setSelectedRating
 }) {
 
   const categories = [
@@ -26,19 +26,19 @@ export default function ShopFilters({
   const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
 
   // KEEPING YOUR STAR LOGIC
-const renderStars = (count) => {
-    return [...Array(5)].map((_, i) => {
-      const isActive = i < count;
-      return (
-        <Star 
-          key={i} 
-          size={14} 
-          fill={isActive ? "#facc15" : "transparent"} 
-          color={isActive ? "#facc15" : "#d1d5db"} 
-        />
-      );
-    });
-  };
+  // const renderStars = (count) => {
+  //   return [...Array(5)].map((_, i) => {
+  //     const isActive = i < count;
+  //     return (
+  //       <Star 
+  //         key={i} 
+  //         size={14} 
+  //         fill={isActive ? "#facc15" : "transparent"} 
+  //         color={isActive ? "#facc15" : "#d1d5db"} 
+  //       />
+  //     );
+  //   });
+  // };
 
   return (
     <aside className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm ">
@@ -51,15 +51,14 @@ const renderStars = (count) => {
             Filters
           </h2>
         </div>
-        {/* Reset Button */}
         <button 
           onClick={() => {
             setSelectedCategory("All Products");
             setSelectedSort("newest");
             setSelectedSize("");
-            setSelectedRating(0);
+            // setSelectedRating(0);
           }}
-          className="text-[10px] font-bold uppercase text-gray-400 hover:text-action transition-colors tracking-widest underline decoration-dotted underline-offset-4"
+          className="text-[10px] font-bold uppercase text-gray-600 hover:text-action transition-colors tracking-widest underline decoration-dotted underline-offset-4"
         >
           Reset
         </button>
@@ -67,7 +66,7 @@ const renderStars = (count) => {
 
       {/* --- 1. CATEGORIES --- */}
       <div className="mb-8">
-        <h3 className="font-bold text-xs uppercase tracking-widest text-gray-400 mb-4">
+        <h3 className="font-bold text-xs uppercase tracking-widest text-gray-600 mb-4">
           Category
         </h3>
         <ul className="space-y-1">
@@ -90,9 +89,9 @@ const renderStars = (count) => {
         </ul>
       </div>
 
-      {/* --- 2. RATING (Your Star Logic Preserved) --- */}
+      {/* --- 2. RATING  --- */}
       {/* <div className="mb-8">
-        <h3 className="font-bold text-xs uppercase tracking-widest text-gray-400 mb-4">
+        <h3 className="font-bold text-xs uppercase tracking-widest text-gray-600 mb-4">
           Rating
         </h3>
         <div className="space-y-2">
@@ -116,7 +115,7 @@ const renderStars = (count) => {
 
       {/* --- 3. SORT BY --- */}
       <div className="mb-8">
-        <h3 className="font-bold text-xs uppercase tracking-widest text-gray-400 mb-4">
+        <h3 className="font-bold text-xs uppercase tracking-widest text-gray-600 mb-4">
           Sort By
         </h3>
         <div className="space-y-2">
@@ -146,7 +145,7 @@ const renderStars = (count) => {
       {/* --- 4. SIZES --- */}
       {selectedCategory !== "Accessories" && (
         <div>
-          <h3 className="font-bold text-xs uppercase tracking-widest text-gray-400 mb-4">
+          <h3 className="font-bold text-xs uppercase tracking-widest text-gray-600 mb-4">
             Size
           </h3>
           <div className="grid grid-cols-4 gap-2">
@@ -165,7 +164,7 @@ const renderStars = (count) => {
           ))}
         </div>
       </div>
-)}
+      )}
     </aside>
   );
 }
