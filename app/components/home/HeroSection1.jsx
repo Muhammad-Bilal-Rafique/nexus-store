@@ -15,7 +15,6 @@ export default function Hero() {
           className="object-cover object-top" 
           priority
           sizes="100vw"
-          quality={80}
         />
       </div>
       <div className="absolute inset-0 container mx-auto px-6 md:px-12 h-full flex flex-col justify-center pt-24 md:pt-32 z-10">

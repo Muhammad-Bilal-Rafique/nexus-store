@@ -3,7 +3,8 @@ import ShopClient from "./ShopClient";
 import { Suspense } from "react";
 import { Loader2 } from "lucide-react";
 
-async function getInitialProducts(searchParams) {
+async function getInitialProducts(searchParamsPromise) {
+  const searchParams = await searchParamsPromise;
   const category = searchParams?.cat || "All Products";
   
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
