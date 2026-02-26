@@ -1,5 +1,5 @@
-"use client";
-import React from "react";
+
+import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react"; // Ensure you have lucide-react installed
 
 const ProductImageGallery = ({ images, selectedImage, setSelectedImage }) => {
@@ -20,22 +20,26 @@ const ProductImageGallery = ({ images, selectedImage, setSelectedImage }) => {
     
       {/* 1. MAIN IMAGE */}
       <div className="order-1 lg:order-1 border  flex-1 relative aspect-4/5 bg-gray-100 rounded-2xl overflow-hidden group">
-        <img
+        <Image
           src={images[selectedImage]}
           alt="Product Main"
           className="w-full h-full object-cover"
+          priority
+          sizes="(max-width: 1024px) 100vw, 50vw"
         />
 
         {/* Navigation Arrows (Only show if multiple images) */}
         {images.length > 1 && (
           <>
-            <button 
+            <button  
+            aria-label="Button to left"
               onClick={handlePrev}
               className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button 
+            aria-label="Button to right"
               onClick={handleNext}
               className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity"
             >
@@ -68,7 +72,7 @@ const ProductImageGallery = ({ images, selectedImage, setSelectedImage }) => {
                   : "border-transparent hover:border-gray-300"
               }`}
             >
-              <img
+              <Image
                 src={img}
                 alt={`Thumbnail ${index + 1}`}
                 className="w-full h-full object-cover"

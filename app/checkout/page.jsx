@@ -108,7 +108,7 @@ const CheckoutPage = () => {
           <h2 className="text-2xl font-bold uppercase mb-4">Your Cart is Empty</h2>
           <Link 
             href="/shop" 
-            className="text-white bg-action px-6 py-3 rounded-xl font-bold uppercase tracking-widest hover:bg-action-hover transition-colors"
+            className="text-black bg-action px-6 py-3 rounded-xl font-bold uppercase tracking-widest hover:bg-action-hover transition-colors"
           >
             Go back to Shop
           </Link>

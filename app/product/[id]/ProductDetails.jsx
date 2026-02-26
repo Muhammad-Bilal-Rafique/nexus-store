@@ -13,10 +13,13 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 // Notice how we receive the pre-fetched data as props!
-export default function ProductDetailsClient({ product, reviews, ratings, numberOfReviews }) {
+export default function ProductDetailsClient({ product}) {
   const router = useRouter();
   const { data: session } = useSession();
   const { addToCart } = useCart();
+  const ratings = product?.averageRating || 0;
+  const numberOfReviews = product?.numReviews || 0;
+  
 
   // INTERACTION STATES ONLY. 
   // Notice we auto-select the first size/color using the prop data immediately!
@@ -39,7 +42,6 @@ export default function ProductDetailsClient({ product, reviews, ratings, number
     addToCart(product, quantity, selectedColor, selectedSize);
   };
 
-  // We completely removed the loading and error UI because the Server Component handles it!
   
   return (
     <div className="bg-bg-primary min-h-screen">
@@ -47,7 +49,7 @@ export default function ProductDetailsClient({ product, reviews, ratings, number
       <main className="pt-24 pb-20 px-6 max-w-7xl mx-auto">
         <Link
           href="/shop"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-text-primary/40 hover:text-action transition-colors mb-8"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-text-primary hover:text-action transition-colors mb-8"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Shop
@@ -72,9 +74,7 @@ export default function ProductDetailsClient({ product, reviews, ratings, number
             numberOfReviews={numberOfReviews}
           />
         </div>
-        <Reviews reviews={reviews} />
       </main>
-      <Footer />
     </div>
   );
 }
