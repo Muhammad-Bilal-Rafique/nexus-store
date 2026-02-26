@@ -25,6 +25,7 @@ const ProductImageGallery = ({ images, selectedImage, setSelectedImage }) => {
           alt="Product Main"
           className="w-full h-full object-cover"
           priority
+          fill
           sizes="(max-width: 1024px) 100vw, 50vw"
         />
 
@@ -76,6 +77,8 @@ const ProductImageGallery = ({ images, selectedImage, setSelectedImage }) => {
                 src={img}
                 alt={`Thumbnail ${index + 1}`}
                 className="w-full h-full object-cover"
+                width={100}
+                height={100}
               />
             </button>
           ))}

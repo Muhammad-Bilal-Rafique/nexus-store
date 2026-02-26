@@ -6,8 +6,6 @@ import axios from "axios";
 import Link from "next/link";
 import { useCart } from "@/app/context/CartContext";
 import { ShoppingBag } from "lucide-react";
-import Navbar from "../components/layout/Navbar";
-import Footer from "../components/layout/Footer";
 import { useSession } from "next-auth/react";
 
 // Import Components
@@ -52,8 +50,8 @@ const CheckoutPage = () => {
     const orderData = {
       customer: {
         ...data,
-        email: session.user?.email, // Add user email from session
-        userId: session.user?.id, // Add user ID if available
+        email: session.user?.email, 
+        userId: session.user?.id, 
       },
       items: cart.map((item) => ({
         product: item._id,
@@ -85,7 +83,6 @@ const CheckoutPage = () => {
   if (!mounted || status === "loading") {
     return (
       <div className="bg-bg-primary min-h-screen flex flex-col">
-        <Navbar />
         <div className="flex-1 flex items-center justify-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-action"></div>
         </div>
@@ -102,7 +99,6 @@ const CheckoutPage = () => {
   if (cart.length === 0) {
     return (
       <div className="bg-bg-primary min-h-screen flex flex-col">
-        <Navbar />
         <div className="flex-1 flex flex-col items-center justify-center text-center px-4">
           <ShoppingBag className="w-16 h-16 text-gray-300 mb-4" />
           <h2 className="text-2xl font-bold uppercase mb-4">Your Cart is Empty</h2>
@@ -113,14 +109,12 @@ const CheckoutPage = () => {
             Go back to Shop
           </Link>
         </div>
-        <Footer />
       </div>
     );
   }
 
   return (
     <div className="bg-bg-primary min-h-screen flex flex-col">
-      <Navbar />
 
       <main className="flex-1 pt-32 pb-20 px-6 max-w-7xl mx-auto w-full">
         {/* Breadcrumb */}
@@ -154,7 +148,6 @@ const CheckoutPage = () => {
         </div>
       </main>
 
-      <Footer />
     </div>
   );
 };

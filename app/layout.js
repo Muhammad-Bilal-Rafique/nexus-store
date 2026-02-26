@@ -1,10 +1,12 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/app/providers";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
 
 const inter = Inter({ 
   subsets: ["latin"],
-  display: 'swap' // This ensures text is visible while the font loads
+  display: 'swap' 
 });
 
 export const metadata = {
@@ -17,7 +19,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Providers>
+        <Navbar />
           {children}
+        <Footer />
         </Providers>
       </body>
     </html>

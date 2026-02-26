@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 import { MapPin, Phone, Mail, Send, Loader2, Instagram, Facebook } from 'lucide-react';
-import Navbar from '../components/layout/Navbar';
-import Footer from '../components/layout/Footer';
 
 export default function ContactPage() {
   const [loading, setLoading] = useState(false);
@@ -20,7 +18,6 @@ export default function ContactPage() {
 
   return (
     <>
-        <Navbar/>
     <div className="mt-14 min-h-screen bg-bg-secondary py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
       <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8">
         
@@ -148,7 +145,6 @@ export default function ContactPage() {
 
       </div>
     </div>
-      <Footer/>
       </>
   );
 }

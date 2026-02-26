@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useSession, signOut } from "next-auth/react";
@@ -9,10 +10,8 @@ import {
   CheckCircle,
   Truck,
   XCircle,
-} from "lucide-react"; // Cleanup imports
+} from "lucide-react"; 
 import Link from "next/link";
-import Navbar from "../components/layout/Navbar";
-import Footer from "../components/layout/Footer";
 import ReviewModal from "@/app/components/orders/ReviewModal";
 
 const MyOrdersPage = () => {
@@ -110,7 +109,6 @@ const MyOrdersPage = () => {
 
   return (
     <div className="bg-bg-secondary min-h-screen flex flex-col">
-      <Navbar />
       <main className="flex-1 max-w-4xl mx-auto w-full px-4 sm:px-6 py-24">
         {/* PAGE HEADER */}
         <div className="mb-8 flex justify-around items-center">
@@ -169,7 +167,10 @@ const MyOrdersPage = () => {
                       >
                         <div className="flex items-center gap-4 flex-1">
                           <div className="w-16 h-16 bg-gray-50 rounded-xl overflow-hidden shrink-0 border border-gray-100">
-                            <img
+                            <Image
+                              width={64}
+                              height={80}
+                              priority={index === 0}
                               src={item.image}
                               alt={item.title}
                               className="w-full h-full object-cover"
@@ -225,7 +226,6 @@ const MyOrdersPage = () => {
           </div>
         )}
       </main>
-      <Footer />
 
       {/* Pass the Success Function to the Modal */}
       <ReviewModal

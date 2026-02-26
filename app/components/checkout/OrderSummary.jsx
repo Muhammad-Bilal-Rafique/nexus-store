@@ -1,31 +1,44 @@
-"use client";
 import React from "react";
 import { Truck, Loader2 } from "lucide-react";
-
+import Image from "next/image";
 
 const OrderSummary = ({ cart, total, loading }) => {
-
-
   return (
     <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl lg:sticky lg:top-32">
-      <h3 className="text-xl font-black uppercase tracking-tighter mb-6">Your Order</h3>
-      
+      <h3 className="text-xl font-black uppercase tracking-tighter mb-6">
+        Your Order
+      </h3>
+
       {/* Mini Cart Items */}
       <div className="space-y-4 mb-8 max-h-60 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-200">
-        {cart.map((item) => (
-           <div key={`${item._id}-${item.selectedSize}-${item.selectedColor}`} className="flex gap-4 items-center">
-              <div className="w-16 h-20 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0 border border-gray-200">
-                 <img src={item.images[0]} alt="" className="w-full h-full object-cover" />
-              </div>
-              <div className="flex-1">
-                 <h4 className="font-bold text-sm text-text-primary line-clamp-1">{item.title}</h4>
-                 <p className="text-xs text-text-primary/50 font-medium mt-1">
-                   {item.selectedSize} | {item.selectedColor}
-                   <span className="ml-2">x{item.quantity}</span>
-                 </p>
-              </div>
-              <p className="font-bold text-sm">Rs. {(item.price * item.quantity).toLocaleString()}</p>
-           </div>
+        {cart.map((item, index) => (
+          <div
+            key={`${item._id}-${item.selectedSize}-${item.selectedColor}`}
+            className="flex gap-4 items-center"
+          >
+            <div className="w-16 h-20 bg-gray-100 rounded-lg overflow-hidden shrink-0 border border-gray-200 relative">
+              <Image
+                priority={index === 0}
+                width={64}
+                height={80}
+                src={item.images[0]}
+                alt={item.title} 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="flex-1">
+              <p className="font-bold text-sm text-text-primary line-clamp-1">
+                {item.title}
+              </p>
+              <p className="text-xs text-text-primary/50 font-medium mt-1">
+                {item.selectedSize} | {item.selectedColor}
+                <span className="ml-2">x{item.quantity}</span>
+              </p>
+            </div>
+            <p className="font-bold text-sm">
+              Rs. {(item.price * item.quantity).toLocaleString()}
+            </p>
+          </div>
         ))}
       </div>
 
@@ -47,28 +60,28 @@ const OrderSummary = ({ cart, total, loading }) => {
         </div>
       </div>
 
-      {/* Confirm Button 
-         IMP: `form="checkout-form"` connects this button to the form in the other component
-      */}
-      <button 
+      <button
         type="submit"
-        form="checkout-form" 
+        form="checkout-form"
         disabled={loading}
         className="w-full py-4 bg-action text-white font-black uppercase tracking-widest text-sm rounded-xl hover:bg-action-hover transition-all shadow-lg shadow-action/20 active:scale-95 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
       >
         {loading ? (
-          <>Processing <Loader2 className="w-4 h-4 animate-spin" /></>
+          <>
+            Processing <Loader2 className="w-4 h-4 animate-spin" />
+          </>
         ) : (
-          <>Confirm Order <Truck className="w-5 h-5" /></>
+          <>
+            Confirm Order <Truck className="w-5 h-5" />
+          </>
         )}
       </button>
 
       <div className="mt-4 text-center">
-         <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">
-            Secure Order powered by Nexus
-         </p>
+        <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">
+          Secure Order powered by Nexus
+        </p>
       </div>
-
     </div>
   );
 };

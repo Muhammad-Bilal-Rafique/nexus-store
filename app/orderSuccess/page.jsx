@@ -3,8 +3,6 @@ import React, { useEffect, useState, Suspense } from "react"; // Added Suspense
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { CheckCircle, ArrowRight, Phone, Mail, Package, Loader2 } from "lucide-react";
-import Navbar from "../components/layout/Navbar";
-import Footer from "../components/layout/Footer";
 
 // 1. The Logic Component (Inside)
 const OrderSuccessContent = () => {
@@ -20,7 +18,6 @@ const OrderSuccessContent = () => {
 
   return (
     <div className="bg-bg-primary min-h-screen flex flex-col">
-      <Navbar />
 
       <main className="flex-1 flex flex-col justify-center py-20 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto w-full">
@@ -101,8 +98,6 @@ const OrderSuccessContent = () => {
           </div>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 };

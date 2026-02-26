@@ -3,8 +3,6 @@
 import React, { useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import Navbar from "@/app/components/layout/Navbar";
-import Footer from "@/app/components/layout/Footer";
 import { useCart } from "@/app/context/CartContext";
 import ProductImageGallery from "@/app/components/product/ProductImageGallery";
 import ProductInfo from "@/app/components/product/ProductInfo";
@@ -45,7 +43,6 @@ export default function ProductDetailsClient({ product}) {
   
   return (
     <div className="bg-bg-primary min-h-screen">
-      <Navbar />
       <main className="pt-24 pb-20 px-6 max-w-7xl mx-auto">
         <Link
           href="/shop"

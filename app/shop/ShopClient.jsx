@@ -3,8 +3,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Loader2, X } from "lucide-react";
-import Navbar from "@/app/components/layout/Navbar";
-import Footer from "@/app/components/layout/Footer";
 import ProductCard from "@/app/components/shop/ProductCard";
 import ShopFilters from "@/app/components/shop/ShopFilters";
 import { useSearchParams } from "next/navigation";
@@ -89,7 +87,6 @@ export default function ShopClient({ initialData }) {
 
   return (
     <div className="bg-bg-primary min-h-screen flex flex-col">
-      <Navbar />
       <div className="MainContainer flex mb-3">
         <div>
           <aside className="sticky top-0 fade-in slide-in-from-left-4 duration-300">
@@ -229,7 +226,6 @@ export default function ShopClient({ initialData }) {
           </div>
         </main>
       </div>
-      <Footer />
     </div>
   );
 }
